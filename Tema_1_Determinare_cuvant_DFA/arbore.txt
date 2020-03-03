@@ -1,8 +1,0 @@
-acccccccccbbccccc
-4 0 3
-0 a 1
-1 c 1
-1 b 2
-2 b 3
-2 a 3
-3 c 3
