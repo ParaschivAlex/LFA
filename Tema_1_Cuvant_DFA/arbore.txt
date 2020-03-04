@@ -1,0 +1,9 @@
+121
+26 z z e d
+z 1 b
+b 2 c
+c 2 d
+c 1 e
+e 1 b
+e 2 e
+e 3 d
