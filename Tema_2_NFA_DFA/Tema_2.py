@@ -98,3 +98,4 @@ for litera in starile_FINALE_FINALE: #pentru fiecare simbol din lista de stari f
 
             
 print("Starile finale ale DFA-ului : ", dfa_stari_finale)
+f.close()
