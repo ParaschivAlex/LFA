@@ -1,16 +1,17 @@
 f = open("date.txt")
 
 dictionar_principal = {}  # dictionarul unde tinem toate
-# datele de tip (stare_initiala --- simbol alfabet --- stare_finala)
 nr_stari = int(f.readline())
 nr_alfabet = int(f.readline())  # numarul de elemente din alfabet
 starile_FINALE_FINALE = f.readline().split()
 simboluri_alfabet = f.readline().split()
 starile = f.readline().split()
 
+
 lst_vida = []
 help = []
 help.append('#')
+
 
 prima_linie = f.readline().split()
 stare_init_aux = prima_linie[0]
@@ -36,16 +37,9 @@ for linie in date:
         dictionar_principal[stare_init][simbol] = lst_vida
     stare_init_aux = stare_init
 
-# for i in range(nr_stari):
-#     stare_init = input("starea initiala de plecare : ")
-#     dictionar_principal[stare_init] = {}
-#     for j in range(nr_alfabet):
-#         simbol = input("simbolul alfabetului: ")
-#         stari_finale = [x for x in input("finish : starile unde ajungem : ").split()]
-#         dictionar_principal[stare_init][simbol] = stari_finale
-
-
+    
 print(dictionar_principal)  # Afisez dictionarul final rezultat AFN-ului
+
 
 stari_noi = []  # lista pentru starile noi din dfa (de exemplu q01 ca in pdf-ul dat)
 dfa = {}  # dictionar pentru dfa
@@ -71,6 +65,7 @@ for i in range(nr_alfabet):  # i de la 0 la numarul de elemente ale alfabetului
         stari_noi.append(x)  # o pun in lista pentru stari de tip "q01" (din q0 si q1 /// alea noi)
         keyss.append(x)  # si pun si cheia (in lista cu stari initiale)
 
+        
 print(stari_noi[0])
 # print(dictionar_principal[stari_noi[0][2]])
 while len(stari_noi) != 0:  # daca lista de stari noi nu este vida inseamna ca putem continua
@@ -88,10 +83,11 @@ while len(stari_noi) != 0:  # daca lista de stari noi nu este vida inseamna ca p
                 stari_noi.append(cuv)  # il pun ca mai sus in lista de stari noi "q01"
                 keyss.append(cuv)  # si pun si cheia
             dfa[stari_noi[0]][symbols[i]] = cuv  # pun cuvantul in dfa
-
     stari_noi.remove(stari_noi[0])  # scot primul element
 
+    
 print(dfa)
+
 
 dfa_stari = list(dfa.keys())
 dfa_stari_finale = []
@@ -100,4 +96,5 @@ for litera in starile_FINALE_FINALE: #pentru fiecare simbol din lista de stari f
         if litera in stare_dfa:#daca o gasesc, atunci starea e si finala
             dfa_stari_finale.append(stare_dfa)
 
+            
 print("Starile finale ale DFA-ului : ", dfa_stari_finale)
